@@ -1,3 +1,4 @@
+#!/bin/bash
 
 if [ $(id -u) != 0 ]; then
   echo "Run script from user root. Your user is ${USER}"
@@ -10,7 +11,7 @@ function install_docker(){
    curl -fsSL https://download.docker.com/linux/ubuntu/gpg | gpg --dearmor -o /etc/apt/keyrings/docker.gpg
    echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
    $(lsb_release -cs) stable" > /etc/apt/sources.list.d/docker.list
-   apt update -yqq && apt install -yqq docker-ce docker-ce-cli containerd.io docker-compose-plugin
+   apt update -yqq && apt install -yqq docker-ce docker-ce-cli containerd.io docker-compose-plugin docker-compose
 }
 
 MINIMA_PORTS='9001-9004'
